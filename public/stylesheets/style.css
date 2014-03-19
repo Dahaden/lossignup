@@ -17,3 +17,10 @@ a {
   width: 550px;
   padding-bottom: 10px;
 }
+#warning {
+  display: none;
+  color: #f00;
+}
+#confirm {
+  display: none;
+}

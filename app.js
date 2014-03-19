@@ -9,7 +9,10 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
+var cors = require('cors');
+
 var app = express();
+
 
 // all environments
 app.set('port', process.env.PORT || 8080);
@@ -31,6 +34,22 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://aurora.quantonz.com:9000/adventurers');
+    res.header('Access-Control-Allow-Methods', 'POST');
+    res.header('Access-Control-Allow-Headers', 'application/json');
+
+    next();
+}
+
+app.use(allowCrossDomain);
+
+app.use(cors);
+
+app.post('http://aurora.quantonz.com:9000/adventurers', function(req, res, next) {
+ // Handle the post for this route
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
