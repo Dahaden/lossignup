@@ -24,3 +24,10 @@ a {
 #confirm {
   display: none;
 }
+#name {
+  margin-bottom: 0px;
+}
+#token {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
