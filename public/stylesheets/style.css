@@ -9,15 +9,11 @@ a {
 }
 #main {
   background: #fff;
-  padding: 20px 40px 20px 40px;
+  padding: 20px 40px 40px 40px;
 }
 #logo {
   display: block;
   margin: auto;
   width: 550px;
   padding-bottom: 10px;
-}
-#submit {
-  display: block;
-  margin: auto;
 }
