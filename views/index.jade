@@ -3,5 +3,8 @@ extends layout
 block content
   div(id="main")
 
-    h1= title
-    p Welcome to #{title}
+    p To start your adventure, submit a name and receive your token
+    div(id="submit")
+      div Character Name:
+        input(type="text" name="charName")
+      input(type="submit" name="Submit")
