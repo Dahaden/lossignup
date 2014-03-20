@@ -34,7 +34,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 
 var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://aurora.quantonz.com:9000/adventurers');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:9000/adventurers');
     res.header('Access-Control-Allow-Methods', 'POST');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -47,7 +47,6 @@ app.use(allowCrossDomain);
 app.use(cors);
 
 var options = {
-  host: "http://localhost",
   port: 9000,
   path: "/adventurers",
   method: "POST"
@@ -59,7 +58,7 @@ app.post("/", function(req, res, nex) {
   var chtoken = rand(9);
 
   var jason = JSON.stringify({name: chname, token: chtoken});
-
+  console.log("Creating Request");
   var reqs = http.request(options, function(response) {
     console.log("Request Made");
     res.end();
@@ -70,6 +69,7 @@ app.post("/", function(req, res, nex) {
     res.end();
   });
   reqs.write(jason);
+  console.log("Sending Request");
   reqs.end();
 
 });
