@@ -66,8 +66,8 @@ app.post("/", function(req, res, nex) {
   req.on('error', function(err){
     console.log('Bad Post: ' + err.messgae);
   });
-  req.write(jason);
-  req.end();
+  reqs.write(jason);
+  reqs.end();
 
 });
 
