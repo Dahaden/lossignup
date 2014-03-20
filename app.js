@@ -32,7 +32,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://aurora.quantonz.com:9000/adventurers');
@@ -61,10 +60,14 @@ app.post("/", function(req, res, nex) {
 
   var jason = JSON.stringify({name: chname, token: chtoken});
 
-  var reqs = http.request(options);
+  var reqs = http.request(options, function(response) {
+    console.log("Request Made");
+    res.end(routes.index);
+  });
 
-  req.on('error', function(err){
+  reqs.on('error', function(err){
     console.log('Bad Post: ' + err.messgae);
+    res.end(routes.index);
   });
   reqs.write(jason);
   reqs.end();
