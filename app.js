@@ -62,12 +62,12 @@ app.post("/", function(req, res, nex) {
 
   var reqs = http.request(options, function(response) {
     console.log("Request Made");
-    res.end(routes.index);
+    res.end();
   });
 
   reqs.on('error', function(err){
     console.log('Bad Post: ' + err.messgae);
-    res.end(routes.index);
+    res.end();
   });
   reqs.write(jason);
   reqs.end();
