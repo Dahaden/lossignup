@@ -6,9 +6,11 @@ block content
     p To start your adventure, submit a name and receive your token
     div(id="submit")
       p(id="warning")
-      div Character Name:&nbsp;
-        input(type="text" name="charName" id="input")
-      button(type="button" id="submitButton" onclick="createChar()") Submit
+      form(action="/" name="input" method="POST")
+        p
+          | Character Name:&nbsp;
+          input(type="text" name="charName" id="input")
+          input(type="submit" id="submitButton")
     div#confirm
       p#name  Character Name:
       p#token Token:
